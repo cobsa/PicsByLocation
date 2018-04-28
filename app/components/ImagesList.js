@@ -3,25 +3,39 @@ import PropTypes from 'prop-types'
 import { GridList } from 'material-ui/GridList'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
+
 import ImageTile from './ImageTile'
+import ImageDetails from './ImageDetails'
 
 export default class ImageList extends PureComponent {
   constructor() {
     super()
     this.state = {
-      selectedImageUrl: '',
+      selectedImage: {
+        url: undefined,
+        photoID: undefined
+      },
       open: false
     }
     this.handleClose = this.handleClose.bind(this)
     this.selectImage = this.selectImage.bind(this)
   }
   handleClose() {
-    this.setState({ selectedImageUrl: '', open: false })
+    this.setState({
+      selectedImage: {
+        url: undefined,
+        photoID: undefined
+      },
+      open: false
+    })
   }
-  selectImage(imageUrl) {
+  selectImage(url, photoID) {
     this.setState({
       open: true,
-      selectedImageUrl: imageUrl
+      selectedImage: {
+        url,
+        photoID
+      }
     })
   }
   render() {
@@ -34,6 +48,7 @@ export default class ImageList extends PureComponent {
       }_${attributes.secret}_b.jpg`
       return (
         <ImageTile
+          photoID={attributes.id}
           key={imageUrl}
           url={imageUrl}
           title={attributes.title}
@@ -45,7 +60,7 @@ export default class ImageList extends PureComponent {
     const actions = [<FlatButton label="Close" primary onClick={this.handleClose} />]
     return (
       <div>
-        <GridList cols={mobile ? 1 : 2} cellHeight={360} padding={4}>
+        <GridList cols={mobile ? 1 : 3} cellHeight={360} padding={4}>
           {tiles}
         </GridList>
         <Dialog
@@ -53,12 +68,9 @@ export default class ImageList extends PureComponent {
           actions={actions}
           open={this.state.open}
           onRequestClose={this.handleClose}
+          autoScrollBodyContent
         >
-          <img
-            src={this.state.selectedImageUrl}
-            alt={this.state.selectedImageUrl}
-            style={{ width: '100%' }}
-          />
+          <ImageDetails {...this.state.selectedImage} />
         </Dialog>
       </div>
     )

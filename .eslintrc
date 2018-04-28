@@ -22,6 +22,8 @@
     "global-require": "off",
     "arrow-body-style": "off",
     "prettier/prettier": "error",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "react/forbid-prop-types": "off",
+    "react/require-default-props": "off"
   }
 }

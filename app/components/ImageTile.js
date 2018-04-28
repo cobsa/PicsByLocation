@@ -20,7 +20,7 @@ export default class ImageTile extends Component {
     })
   }
   handleZoom() {
-    this.props.selectImage(this.props.url)
+    this.props.selectImage(this.props.url, this.props.photoID)
   }
   render() {
     const { url, title } = this.props
@@ -54,5 +54,6 @@ export default class ImageTile extends Component {
 ImageTile.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  selectImage: PropTypes.func.isRequired
+  selectImage: PropTypes.func.isRequired,
+  photoID: PropTypes.string.isRequired
 }

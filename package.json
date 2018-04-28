@@ -1,6 +1,6 @@
 {
-  "name": "InstaNear",
-  "version": "0.0.1",
+  "name": "PicsByLocation",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "precommit": "cross-env npm run lint && npm test",
     "prepush": "cross-env npm run lint && npm test"
   },
-  "author": "Kliment Petrov <kleopetroff@gmail.com>",
+  "author": "Jaakko Koponen <cobsa89@gmail.com>",
   "license": "MIT",
   "jest": {
     "setupFiles": [
@@ -41,10 +41,12 @@
     "prop-types": "^15.6.1",
     "react": "16.3.2",
     "react-dom": "16.3.2",
+    "react-geolocated": "^2.3.2",
     "react-google-maps-loader": "^4.2.2",
     "react-google-places-suggest": "^3.4.0",
     "react-hot-loader": "4.1.1",
     "react-router-dom": "4.2.2",
+    "react-s-alert": "^1.4.1",
     "xml-js": "^1.6.2"
   },
   "devDependencies": {

@@ -1,5 +1,16 @@
 import React, { Component } from 'react'
 import AppBar from 'material-ui/AppBar'
+import Alert from 'react-s-alert'
+// mandatory
+import 'react-s-alert/dist/s-alert-default.css'
+// optional - you can choose the effect you want
+import 'react-s-alert/dist/s-alert-css-effects/slide.css'
+import 'react-s-alert/dist/s-alert-css-effects/scale.css'
+import 'react-s-alert/dist/s-alert-css-effects/bouncyflip.css'
+import 'react-s-alert/dist/s-alert-css-effects/flip.css'
+import 'react-s-alert/dist/s-alert-css-effects/genie.css'
+import 'react-s-alert/dist/s-alert-css-effects/jelly.css'
+import 'react-s-alert/dist/s-alert-css-effects/stackslide.css'
 
 import LocationInput from './LocationInput'
 
@@ -26,12 +37,13 @@ export default class App extends Component {
 
   render() {
     const { width } = this.state
-    const isMobile = width <= 500
+    const mobile = width <= 500
     return (
       <div>
-        <AppBar title="InstaNear" showMenuIconButton={false} />
+        <AppBar title="PicsByLocation" showMenuIconButton={false} />
         <br />
-        <LocationInput mobile={isMobile} />
+        <LocationInput mobile={mobile} />
+        <Alert stack={{ limit: 3 }} />
       </div>
     )
   }
