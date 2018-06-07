@@ -24,7 +24,7 @@ export default class ImageTile extends Component {
   }
   render() {
     const { url, title } = this.props
-    const { loaded } = this.state //eslint-disable-line
+    const { loaded } = this.state
     return (
       <div>
         <GridTile

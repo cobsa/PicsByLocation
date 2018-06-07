@@ -25,7 +25,7 @@ export default class ImageDetails extends Component {
           }`
         )
         .then(response => {
-          /* eslint-disable */
+          /* eslint-disable dot-notation */
           const json = convert.xml2js(response.data, { compact: true, spaces: 4 })
           const { photo } = json.rsp
           this.setState({
@@ -35,7 +35,7 @@ export default class ImageDetails extends Component {
             link: photo.urls.url['_text'],
             loading: false
           })
-          /* eslint-enable */
+          /* eslint-enable dot-notation */
         })
     }
   }
