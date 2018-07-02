@@ -13,6 +13,7 @@ import 'react-s-alert/dist/s-alert-css-effects/jelly.css'
 import 'react-s-alert/dist/s-alert-css-effects/stackslide.css'
 
 import LocationInput from './LocationInput'
+import Info from './Info'
 
 export default class App extends Component {
   constructor() {
@@ -42,6 +43,7 @@ export default class App extends Component {
       <div>
         <AppBar title="PicsByLocation" showMenuIconButton={false} />
         <br />
+        <Info />
         <LocationInput mobile={mobile} />
         <Alert stack={{ limit: 3 }} />
       </div>
